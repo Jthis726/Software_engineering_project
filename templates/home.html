@@ -1,0 +1,19 @@
+<!-- jinja2 템플릿 언어를 사용함 -->
+
+<!-- 기본 구조 상속 -->
+{% extends "index.html" %}
+
+{% block contents %}
+<div id="contents">
+    <div class="backImage"></div>
+    <div class="wrap">
+        <div class="banner">
+            <h2>Welcome to AKOMarket!</h2>
+            <p>Do you want trade some coins?</p>
+            <p>Then Enter our website!</p>
+            <a href="/product">Go Trade</a>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

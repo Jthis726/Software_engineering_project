@@ -1,0 +1,36 @@
+<!-- jinja2 템플릿 언어를 사용함 -->
+
+<!-- 기본 구조 상속 -->
+{% extends "index.html" %}
+
+{% block contents %}
+<div id="contents">
+    <div class="backImage"></div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="id">#</th>
+                <th class="user">User</th>
+                <th class="coin">Amount of Coin</th>
+                <th class="price">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in template.product_list %}
+            <tr>
+                <td>{{product.id}}</td>
+                <td>{{product.user_id}}</td>
+                <td><a href="product-info/{{product.id}}" class="product-info">{{product.coin}}</a></td>
+                <td>{{product.coin*product.price}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="page-controller">
+        <a href="page_down">PREV</a>
+        <a href="page_up">NEXT</a>
+    </div>
+    
+</div>
+{% endblock %}

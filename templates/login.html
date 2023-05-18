@@ -1,0 +1,20 @@
+<!-- jinja2 템플릿 언어를 사용함 -->
+
+<!-- 기본 구조 상속 -->
+{% extends "index.html" %}
+
+{% block contents %}
+<div id="contents">
+    <div class="backImage"></div>
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form" action="/login" method="post">
+                <input type="text" name="ID" placeholder="username"/>
+                <input type="password" name="PW" placeholder="password"/>
+                <button type="submit">login</button>
+                <p class="message">Not registered? <a href="/signup">Create an account</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

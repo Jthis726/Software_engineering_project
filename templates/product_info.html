@@ -1,0 +1,52 @@
+<!-- jinja2 템플릿 언어를 사용함 -->
+
+<!-- 기본 구조 상속 -->
+{% extends "index.html" %}
+
+{% block contents %}
+<div id="contents">
+    <div class="product-info-container">
+        <div class="product-info">
+            <p class="title">Amount of Coins: </p>
+            <p class="info">{{ product.coin }}</p>
+            <hr>
+            <p class="title">Price : {{ product.coin*product.price }} WON</p>
+            <hr>
+            <p class="title">Sellor ID : {{ product.user_id }}</p>
+        </div>
+        <img src="/static/images/coin.jpg">
+        <a class="aLink backLink" href="/product">More</a>
+        {% if template.user.name == product.user_id %}
+            <a class="aLink updateLink" href="#">Edit</a>
+            <a class="aLink deleteLink" href="/product-delete/{{ product.id }}">Delete</a>
+        
+
+        <!--물품등록 폼-->
+        <form class="product-form update" action="/product-update/{{product.id}}" method="post">
+            <div class="labels">
+                <div class="label">
+                    <label for="coin">Amount of Coin</label>
+                    <input name="coin" type="text" placeholder="Coin" id="coin" value="{{ product.coin }}" />
+                </div>
+                <div class="label">
+                    <label for="price">Price</label>
+                    <input name="price" type="number" placeholder="price" id="price" value="{{ product.coin*product.price }}"/>
+                </div>
+            </div>
+
+            </p>
+            <input type="submit" value="update" id="product-submit"/>
+            <a href="#" class="close-form">CLOSE</a>
+            </form>
+        {% endif %}
+        
+        {% if template.user.name != product.user_id %}
+            {% if template.user.isLogged %}
+                <a class="aLink buyLink" href="/product-buy/{{ product.id, product.price}}">BUY</a>
+            {% endif %}
+        {% endif %}
+
+    </div>
+
+</div>
+{% endblock %}
