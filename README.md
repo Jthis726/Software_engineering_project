@@ -33,7 +33,7 @@ I created tags, classes, and names to style html, and I declared them all in her
 
 
 
-**##HTML**  
+## templates  
 All html files inherit index.html
 
 **index.html**  
