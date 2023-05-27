@@ -87,14 +87,20 @@ def signup():
 
 @APP.route('/fakebank', methods=["GET", "POST"])
 def fakebank():
+    global bank_money
+    
     if request.method == 'POST':
         amount = request.form['amount']
 
-        if bank_money >= amount:
+        if bank_money >= int(amount):
             User.add_money(amount)
             bank_money = bank_money-amount
-    else:
-        return render_template('fakebank.html', template=template)
+            
+        else:
+            print('not enough money')
+            return redirect('/');
+    
+    return render_template('fakebank.html', bank_money=bank_money, template=template)
 
 
 ##########################################################################################################
