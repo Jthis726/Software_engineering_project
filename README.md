@@ -2,7 +2,8 @@
 
 ## HOW TO RUN  
   
-1. run app.py
+1. venv\scripts\activate
+2. flask run
 
 # notice
 
